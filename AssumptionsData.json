@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "2026.1",
+  "publishedDate": "2026-01-15",
+  "description": "Bundled default assumption data for the retirement planner. These values mirror the app's current hard-coded calculation assumptions and are intended to become the local fallback when downloaded updates are unavailable.",
+  "irsLimits": {
+    "2024": {
+      "employee401kElectiveDeferral": 23000,
+      "employee401kCatchUp50": 7500,
+      "iraContribution": 7000,
+      "iraCatchUp50": 1000,
+      "hsaFamily": 8300,
+      "hsaSelfOnly": 4150,
+      "hsaCatchUp55": 1000
+    },
+    "2025": {
+      "employee401kElectiveDeferral": 23500,
+      "employee401kCatchUp50": 7500,
+      "iraContribution": 7000,
+      "iraCatchUp50": 1000,
+      "hsaFamily": 8550,
+      "hsaSelfOnly": 4300,
+      "hsaCatchUp55": 1000
+    },
+    "2026": {
+      "employee401kElectiveDeferral": 24000,
+      "employee401kCatchUp50": 8000,
+      "iraContribution": 7500,
+      "iraCatchUp50": 1000,
+      "hsaFamily": 8750,
+      "hsaSelfOnly": 4400,
+      "hsaCatchUp55": 1000
+    }
+  },
+  "tax": {
+    "2024": {
+      "standardDeduction": {
+        "single": 14600,
+        "marriedFilingJointly": 29200
+      },
+      "socialSecurityTaxationThresholds": {
+        "single": {
+          "base1": 25000,
+          "base2": 34000
+        },
+        "marriedFilingJointly": {
+          "base1": 32000,
+          "base2": 44000
+        }
+      },
+      "brackets": {
+        "single": [
+          { "lowerBound": 0, "rate": 0.10 },
+          { "lowerBound": 11600, "rate": 0.12 },
+          { "lowerBound": 47150, "rate": 0.22 },
+          { "lowerBound": 100525, "rate": 0.24 },
+          { "lowerBound": 191950, "rate": 0.32 },
+          { "lowerBound": 243725, "rate": 0.35 },
+          { "lowerBound": 609350, "rate": 0.37 }
+        ],
+        "marriedFilingJointly": [
+          { "lowerBound": 0, "rate": 0.10 },
+          { "lowerBound": 23200, "rate": 0.12 },
+          { "lowerBound": 94300, "rate": 0.22 },
+          { "lowerBound": 201050, "rate": 0.24 },
+          { "lowerBound": 383900, "rate": 0.32 },
+          { "lowerBound": 487450, "rate": 0.35 },
+          { "lowerBound": 731200, "rate": 0.37 }
+        ]
+      }
+    }
+  },
+  "medicare": {
+    "2026": {
+      "partBBaseMonthlyPremium": 185,
+      "medigapMonthlyPremium": 165,
+      "partDMonthlyPremium": 45,
+      "advantageMonthlyPremium": 25,
+      "advantageEstimatedAnnualOOP": 1500,
+      "originalMaxAnnualOOP": 2300,
+      "advantageMaxAnnualOOP": 6700,
+      "noMedicareAnnualHealthCareCost": 0,
+      "partBAnnualInflationMultiplier": 2,
+      "irmaaTiers": [
+        {
+          "label": "Standard",
+          "singleUpperBound": 109000,
+          "marriedFilingJointlyUpperBound": 218000,
+          "partBMonthlySurcharge": 0,
+          "partDMonthlySurcharge": 0
+        },
+        {
+          "label": "Tier 1",
+          "singleUpperBound": 137000,
+          "marriedFilingJointlyUpperBound": 274000,
+          "partBMonthlySurcharge": 73.90,
+          "partDMonthlySurcharge": 13.50
+        },
+        {
+          "label": "Tier 2",
+          "singleUpperBound": 171000,
+          "marriedFilingJointlyUpperBound": 342000,
+          "partBMonthlySurcharge": 184.80,
+          "partDMonthlySurcharge": 33.90
+        },
+        {
+          "label": "Tier 3",
+          "singleUpperBound": 205000,
+          "marriedFilingJointlyUpperBound": 410000,
+          "partBMonthlySurcharge": 295.70,
+          "partDMonthlySurcharge": 54.30
+        },
+        {
+          "label": "Tier 4",
+          "singleUpperBound": 500000,
+          "marriedFilingJointlyUpperBound": 750000,
+          "partBMonthlySurcharge": 406.60,
+          "partDMonthlySurcharge": 74.80
+        },
+        {
+          "label": "Tier 5",
+          "singleUpperBound": null,
+          "marriedFilingJointlyUpperBound": null,
+          "partBMonthlySurcharge": 443.70,
+          "partDMonthlySurcharge": 81.50
+        }
+      ]
+    }
+  },
+  "socialSecurity": {
+    "2026": {
+      "colaRate": 2.5,
+      "wageBase": null,
+      "fullRetirementAgeRule": "Current app logic derives full retirement age from birth year in RetirementModel.fullRetirementAgeMonths(for:)."
+    }
+  },
+  "marketAssumptions": {
+    "generalInflationRate": 3.0,
+    "cpiWRate": 2.0,
+    "preRetirementReturn": 9.0,
+    "postRetirementReturn": 5.0,
+    "bucketReturns": {
+      "safety": 3.0,
+      "income": 5.0,
+      "growth": 7.0
+    }
+  },
+  "monteCarlo": {
+    "defaultSimulationCount": 2000,
+    "successThreshold": 0.80,
+    "fallbackSuccessThreshold": 0.50,
+    "varyPreRetirementByDefault": false,
+    "standardDeviations": {
+      "growth": 15.0,
+      "income": 6.0,
+      "safety": 1.5,
+      "inflation": 2.0
+    },
+    "correlations": {
+      "growthInflation": -0.20,
+      "incomeInflation": -0.30
+    },
+    "notes": "Means come from the user/model assumptions. Standard deviations and correlations mirror the current MonteCarloStressTester constants. Rates are stored as percentages, not fractions."
+  }
+}
